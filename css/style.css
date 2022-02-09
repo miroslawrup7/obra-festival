@@ -1,3 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;900&display=swap");
+
+@font-face {
+  font-family: "eXO2Stencil";
+  src: url("../fonts/eXO2Stencil.woff2") format("woff2"),
+    url("../fonts/eXO2Stencil.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Candara";
+  src: url("../fonts/Candara.woff2") format("woff2"),
+    url("../fonts/Candara.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -12,4 +32,280 @@
 
 body {
   background-color: #ffd600;
+}
+
+.wrapper {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid black;
+}
+
+.lang {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: 300;
+  margin: 10px 0;
+}
+
+.lang a {
+  color: #fff;
+  transition: all ease-out 0.2s;
+}
+
+.pl:hover {
+  color: #d7372b;
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
+}
+
+.en:hover {
+  color: #d7372b;
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
+}
+
+.date {
+  font-family: "Candara";
+  font-size: 3.4em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.logo {
+  text-align: center;
+  margin: 25px 0;
+}
+
+.logo img {
+  width: 60%;
+}
+
+.tickets {
+  position: relative;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 3em;
+  font-weight: 500;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #d7372b;
+  width: 300px;
+  margin: 30px auto;
+  padding: 15px 0;
+  transition: all ease-out 0.2s;
+  overflow: hidden;
+}
+
+.tickets:hover a {
+  color: #d7372b;
+}
+
+.tickets:hover {
+  background-color: #fff;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 0.5);
+  cursor: pointer;
+}
+
+.tickets a {
+  color: #fff;
+  transition: all ease-out 0.2s;
+}
+
+.counter {
+  font-family: "eXO2Stencil";
+  font-size: 6em;
+  text-align: center;
+  margin: 30px auto;
+}
+
+.social {
+  display: flex;
+  font-size: 3.7em;
+  text-align: center;
+  margin: 10px auto;
+}
+
+.social a {
+  margin: 0 30px;
+  font-weight: bold;
+  color: #000;
+  transition: all ease-out 0.2s;
+}
+
+.social .facebook:hover {
+  color: #4267b2;
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.social .instagram:hover {
+  color: #c13584;
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.social .youtube:hover {
+  color: #ff0000;
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
+}
+
+.picture {
+  text-align: center;
+  position: relative;
+}
+
+.picture img {
+  width: 75%;
+  margin-bottom: -10px;
+}
+
+.statute {
+  text-transform: uppercase;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-size: 2.2em;
+  font-weight: 300;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all ease-out 0.2s;
+}
+
+.statute a {
+  color: #fff;
+}
+
+.statute:hover a {
+  color: #d7372b;
+  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
+}
+
+@media (max-width: 1200px) {
+  .wrapper {
+    width: 800px;
+  }
+
+  .lang {
+    margin: 10px 0 0 0;
+  }
+
+  .date {
+    font-size: 2.4em;
+  }
+
+  .logo {
+    margin: 0 0 25px 0;
+  }
+
+  .lang,
+  .statute {
+    font-size: 1.5em;
+  }
+
+  .tickets {
+    font-size: 2em;
+    width: 200px;
+    margin: 0 auto 30px auto;
+  }
+
+  .counter {
+    font-size: 5em;
+    margin: 0 auto;
+  }
+
+  .social {
+    font-size: 3em;
+  }
+
+  .social a {
+    margin: 0 25px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    width: 600px;
+  }
+
+  .lang {
+    margin: 10px 0 0 0;
+  }
+
+  .lang,
+  .statute {
+    font-size: 1.2em;
+  }
+
+  .date {
+    font-size: 2em;
+  }
+
+  .logo {
+    margin: 0 0 25px 0;
+  }
+
+  .tickets {
+    font-size: 1.3em;
+    width: 150px;
+    margin: 0 auto 30px auto;
+  }
+
+  .counter {
+    font-size: 4em;
+    margin: 0 auto;
+  }
+
+  .social {
+    font-size: 2.2em;
+  }
+
+  .social a {
+    margin: 0 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 400px;
+  }
+
+  .lang {
+    margin: 10px 0 0 0;
+  }
+
+  .date {
+    font-size: 1.8em;
+  }
+
+  .logo {
+    margin: 0 0 25px 0;
+  }
+
+  .lang,
+  .statute {
+    font-size: 1.2em;
+  }
+
+  .tickets {
+    font-size: 1em;
+    width: 130px;
+    margin: 0 auto 30px auto;
+  }
+
+  .counter {
+    font-size: 3em;
+    margin: 0 auto;
+  }
+
+  .social {
+    font-size: 2em;
+  }
+
+  .social a {
+    margin: 0 15px;
+  }
 }
