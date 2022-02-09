@@ -40,7 +40,6 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid black;
 }
 
 .lang {
@@ -198,7 +197,7 @@ body {
   }
 
   .logo {
-    margin: 0 0 25px 0;
+    margin: 20px 0 25px 0;
   }
 
   .lang,
@@ -245,7 +244,7 @@ body {
   }
 
   .logo {
-    margin: 0 0 25px 0;
+    margin: 20px 0 25px 0;
   }
 
   .tickets {
@@ -282,7 +281,7 @@ body {
   }
 
   .logo {
-    margin: 0 0 25px 0;
+    margin: 20px 0 25px 0;
   }
 
   .lang,
