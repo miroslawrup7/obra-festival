@@ -39,32 +39,36 @@ body {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
 }
 
 .lang {
   text-transform: uppercase;
-  color: #fff;
+  color: RGBA(0, 0, 0, 0.6);
   font-family: "Roboto", sans-serif;
   text-align: center;
-  font-size: 2.2em;
+  font-size: 1.2em;
   font-weight: 300;
   margin: 10px 0;
+
+  display: flex;
 }
 
-.lang a {
-  color: #fff;
-  transition: all ease-out 0.2s;
+.lang div {
+  color: #000;
+  transition: all 0.2s;
 }
 
 .pl:hover {
   color: #d7372b;
-  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
+  text-shadow: 1px 1px 4px rgba(0, 0, 90, 0.7);
+  cursor: pointer;
 }
 
 .en:hover {
   color: #d7372b;
-  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
+  text-shadow: 1px 1px 4px rgba(0, 0, 90, 0.7);
+  cursor: pointer;
 }
 
 .date {
@@ -95,7 +99,7 @@ body {
   width: 300px;
   margin: 30px auto;
   padding: 15px 0;
-  transition: all ease-out 0.2s;
+  transition: all 0.2s;
   overflow: hidden;
 }
 
@@ -111,14 +115,41 @@ body {
 
 .tickets a {
   color: #fff;
-  transition: all ease-out 0.2s;
+  transition: all 0.2s;
 }
 
 .counter {
   font-family: "eXO2Stencil";
   font-size: 6em;
   text-align: center;
-  margin: 30px auto;
+  margin: 30px 0 45px 0;
+  display: flex;
+  justify-content: space-around;
+  width: 60%;
+}
+
+.counter .description {
+  font-family: "Roboto", sans-serif;
+  color: RGBA(0, 0, 0, 0.6);
+  font-size: 0.2em;
+  text-align: center;
+  margin-top: -15px;
+}
+
+.counter .days {
+  width: 170px;
+}
+
+.counter .hours {
+  width: 150px;
+}
+
+.counter .minutes {
+  width: 150px;
+}
+
+.counter .seconds {
+  width: 150px;
 }
 
 .social {
@@ -132,7 +163,7 @@ body {
   margin: 0 30px;
   font-weight: bold;
   color: #000;
-  transition: all ease-out 0.2s;
+  transition: all 0.2s;
 }
 
 .social .facebook:hover {
@@ -150,37 +181,90 @@ body {
   text-shadow: 4px 4px 6px rgba(66, 68, 90, 1);
 }
 
-.picture {
-  text-align: center;
-  position: relative;
-}
-
-.picture img {
-  width: 75%;
-  margin-bottom: -10px;
-}
-
 .statute {
   text-transform: uppercase;
-  color: #fff;
   font-family: "Roboto", sans-serif;
   text-align: center;
-  font-size: 2.2em;
+  font-size: 1.2em;
   font-weight: 300;
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
-  transition: all ease-out 0.2s;
+  transition: all 0.2s;
 }
 
 .statute a {
-  color: #fff;
+  transition: all 0.2s;
+  color: #000;
 }
 
 .statute:hover a {
   color: #d7372b;
-  text-shadow: 4px 4px 6px rgba(66, 68, 90, 0.7);
+  text-shadow: 1px 1px 4px rgba(0, 0, 90, 0.7);
+}
+
+/* LIGHTBOX */
+
+#lightbox {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  display: none;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#lightbox.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#lightbox [class^="text-box"] {
+  padding: 30px;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  font-family: "Roboto", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+#lightbox [class^="text-box"] h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#lightbox [class^="text-box"] li {
+  margin-bottom: 10px;
+}
+
+#lightbox .hide {
+  display: none;
+}
+
+.statute-wrapper {
+  position: relative;
+}
+
+.close-btn {
+  position: absolute;
+  top: -65px;
+  right: -10px;
+  font-size: 32px;
+  padding: 10px;
+}
+
+@media (max-height: 1120px) {
+  .statute {
+    position: relative;
+    width: 100%;
+    margin-top: 10px;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -202,7 +286,7 @@ body {
 
   .lang,
   .statute {
-    font-size: 1.5em;
+    font-size: 1em;
   }
 
   .tickets {
@@ -213,7 +297,8 @@ body {
 
   .counter {
     font-size: 5em;
-    margin: 0 auto;
+    margin: 0 auto 18px auto;
+    width: 70%;
   }
 
   .social {
@@ -222,6 +307,14 @@ body {
 
   .social a {
     margin: 0 25px;
+  }
+
+  @media (max-height: 775px) {
+    .statute {
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+    }
   }
 }
 
@@ -236,7 +329,7 @@ body {
 
   .lang,
   .statute {
-    font-size: 1.2em;
+    font-size: 0.8em;
   }
 
   .date {
@@ -255,7 +348,8 @@ body {
 
   .counter {
     font-size: 4em;
-    margin: 0 auto;
+    margin: 0 auto 10px auto;
+    width: 70%;
   }
 
   .social {
@@ -265,11 +359,19 @@ body {
   .social a {
     margin: 0 15px;
   }
+
+  @media (max-height: 620px) {
+    .statute {
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+    }
+  }
 }
 
 @media (max-width: 600px) {
   .wrapper {
-    width: 400px;
+    width: 360px;
   }
 
   .lang {
@@ -286,7 +388,7 @@ body {
 
   .lang,
   .statute {
-    font-size: 1.2em;
+    font-size: 0.7em;
   }
 
   .tickets {
@@ -297,7 +399,8 @@ body {
 
   .counter {
     font-size: 3em;
-    margin: 0 auto;
+    margin: 0 auto 15px auto;
+    width: 80%;
   }
 
   .social {
@@ -306,5 +409,13 @@ body {
 
   .social a {
     margin: 0 15px;
+  }
+
+  @media (max-height: 500px) {
+    .statute {
+      position: relative;
+      width: 100%;
+      margin-top: 10px;
+    }
   }
 }
