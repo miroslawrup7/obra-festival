@@ -1,47 +1,79 @@
-let countDownDate = new Date("2022-06-24T18:00:00").getTime(); // Set the date we're counting down to
+// COUNTDOWN
 
-const x = setInterval(function () {
-  // Update the count down every 1 second
+function countdown() {
+  let countDownDate = new Date("2022-06-24T18:00:00").getTime();
 
-  let now = new Date().getTime(); // Get today's date and time
-  let distance = countDownDate - now; // Find the distance between now and the count down date
+  const x = setInterval(function () {
+    let now = new Date().getTime();
+    let distance = countDownDate - now;
 
-  let days = Math.floor(distance / (1000 * 60 * 60 * 24)); // Time calculations for days, hours, minutes and seconds
-  let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor(
+      (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+    );
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  //   document.getElementById("demo").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";     // Display the result in the element with id="demo"
-  const daysLocation = document.querySelector(".days .numbers");
-  daysLocation.innerText = days;
-  const hoursLocation = document.querySelector(".hours .numbers");
-  hoursLocation.innerText = hours;
-  const minutesLocation = document.querySelector(".minutes .numbers");
-  minutesLocation.innerText = minutes;
-  const secondsLocation = document.querySelector(".seconds .numbers");
-  secondsLocation.innerText = seconds;
+    document.querySelector(".days .numbers").innerText = days;
+    document.querySelector(".hours .numbers").innerText = hours;
+    document.querySelector(".minutes .numbers").innerText = minutes;
+    document.querySelector(".seconds .numbers").innerText = seconds;
 
-  if (distance < 0) {
-    // If the count down is finished, write some text
-    clearInterval(x);
-    // document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
+    let statuteTitle = document.querySelector(".statute a").innerText;
+
+    let daysDesc = document.querySelector(".counter .days .description");
+    let hoursDesc = document.querySelector(".counter .hours .description");
+    let minutesDesc = document.querySelector(".counter .minutes .description");
+    let secondsDesc = document.querySelector(".counter .seconds .description");
+
+    if (statuteTitle == "REGULAMIN") {
+      days === 1 && (daysDesc.innerText = "dzień");
+      (days > 1 || days === 0) && (daysDesc.innerText = "dni");
+      hours === 1 && (hoursDesc.innerText = "godzina");
+      hours > 1 && hours < 5 && (hoursDesc.innerText = "godziny");
+      (hours === 5 || hours > 5 || hours === 0) &&
+        (hoursDesc.innerText = "godzin");
+      minutes === 1 && (minutesDesc.innerText = "minuta");
+      minutes > 1 && minutes < 5 && (minutesDesc.innerText = "minuty");
+      (minutes === 5 || minutes > 5 || minutes === 0) &&
+        (minutesDesc.innerText = "minut");
+      seconds === 1 && (secondsDesc.innerText = "sekunda");
+      seconds > 1 && seconds < 5 && (secondsDesc.innerText = "sekundy");
+      (seconds === 5 || seconds > 5 || seconds === 0) &&
+        (secondsDesc.innerText = "sekund");
+    } else if (statuteTitle == "TERMS AND CONDITIONS") {
+      days === 1 && (daysDesc.innerText = "day");
+      (days > 1 || days === 0) && (daysDesc.innerText = "days");
+      hours === 1 && (hoursDesc.innerText = "hour");
+      (hours > 1 || hours === 0) && (hoursDesc.innerText = "hours");
+      minutes === 1 && (minutesDesc.innerText = "minute");
+      (minutes > 1 || minutes === 0) && (minutesDesc.innerText = "minutes");
+      seconds === 1 && (secondsDesc.innerText = "minute");
+      (seconds > 1 || seconds === 0) && (secondsDesc.innerText = "minutes");
+    }
+
+    if (distance < 0) {
+      // If the count down is finished, write some text
+      clearInterval(x);
+      // document.getElementById("demo").innerHTML = "EXPIRED";
+    }
+  }, 1000);
+}
+
+// LANGUAGE
 
 function toggleLanguagePL() {
-  const ticketsLocation = document.querySelector(".tickets a");
-  ticketsLocation.innerText = "Bilety";
-  const statuteLocation = document.querySelector(".statute a");
-  statuteLocation.innerText = "Regulamin";
+  document.querySelector(".tickets a").innerText = "Bilety";
+  document.querySelector(".statute a").innerText = "Regulamin";
+  countdown();
 }
 
 document.querySelector(".pl").addEventListener("click", toggleLanguagePL);
 
 function toggleLanguageEN() {
-  const ticketsLocation = document.querySelector(".tickets a");
-  ticketsLocation.innerText = "Tickets";
-  const statuteLocation = document.querySelector(".statute a");
-  statuteLocation.innerText = "Terms and Conditions";
+  document.querySelector(".tickets a").innerText = "Tickets";
+  document.querySelector(".statute a").innerText = "Terms and Conditions";
+  countdown();
 }
 
 document.querySelector(".en").addEventListener("click", toggleLanguageEN);
@@ -79,3 +111,5 @@ statuteBtn.addEventListener("click", () => {
 closeBtn.addEventListener("click", () => {
   lightbox.classList.remove("active");
 });
+
+countdown();
